@@ -1,5 +1,6 @@
 import Cookies from "js-cookie";
 import axios from "axios";
+import { User } from "@/types";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 const token = Cookies.get("fitlit_token");
@@ -23,8 +24,8 @@ const login = async (email: string, password: string) => {
   }
 };
 
-const getUser = async () => {
-  const response = await axios.get(`${API_BASE_URL}/users/me`, {
+const getUser = async (): Promise<User> => {
+  const response = await axios.get<User>(`${API_BASE_URL}/users/me`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -32,4 +33,9 @@ const getUser = async () => {
   return response.data;
 };
 
-export { login, getUser };
+const logout = async () => {
+  const response = await axios.post(`${API_BASE_URL}/auth/logout`);
+  return response.data;
+};
+
+export { login, getUser, logout };
