@@ -5,8 +5,7 @@ export default function middleware(request: NextRequest) {
   // Get token from Authorization header or cookies
   const authHeader = request.headers.get("authorization");
   const token =
-    authHeader?.replace("Bearer ", "") ||
-    request.cookies.get("fitlit_token")?.value;
+    authHeader?.replace("Bearer ", "") || localStorage.getItem("fitlit-token");
 
   const isAuthPage = request.nextUrl.pathname === "/";
   const isSignupPage = request.nextUrl.pathname === "/signup";

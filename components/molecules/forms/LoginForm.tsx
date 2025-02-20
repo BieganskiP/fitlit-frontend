@@ -16,6 +16,7 @@ interface LoginResponse {
   user: {
     status: string;
   };
+  token: string;
 }
 
 export const LoginForm = () => {
@@ -37,6 +38,7 @@ export const LoginForm = () => {
       )) as LoginResponse;
 
       if (response.user.status === "active") {
+        localStorage.setItem("fitlit-token", response.token);
         router.push("/dashboard");
       } else {
         router.push("/inactive");
