@@ -1,9 +1,6 @@
-import Cookies from "js-cookie";
 import axios from "axios";
-import { User } from "@/types";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-const token = Cookies.get("fitlit_token");
 
 // Configure axios defaults
 axios.defaults.withCredentials = true;
@@ -24,12 +21,18 @@ const login = async (email: string, password: string) => {
   }
 };
 
-const getUser = async (): Promise<User> => {
-  const response = await axios.get<User>(`${API_BASE_URL}/users/me`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+interface SignupData {
+  token: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+}
+
+const signup = async (data: SignupData) => {
+  const response = await axios.post(
+    `${API_BASE_URL}/auth/complete-registration`,
+    data
+  );
   return response.data;
 };
 
@@ -38,4 +41,4 @@ const logout = async () => {
   return response.data;
 };
 
-export { login, getUser, logout };
+export { login, signup, logout };
