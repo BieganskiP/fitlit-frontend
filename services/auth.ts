@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import Cookies from "js-cookie";
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 // Configure axios defaults
@@ -33,11 +33,17 @@ const signup = async (data: SignupData) => {
     `${API_BASE_URL}/auth/complete-registration`,
     data
   );
+
   return response.data;
 };
 
 const logout = async () => {
   const response = await axios.post(`${API_BASE_URL}/auth/logout`);
+
+  Cookies.remove("token");
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+
   return response.data;
 };
 

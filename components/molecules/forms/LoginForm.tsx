@@ -38,13 +38,13 @@ export const LoginForm = () => {
         data.password
       )) as LoginResponse;
 
-      Cookies.set("token", response.token, {
+      Cookies.set("fitlit-token", response.token, {
         expires: 365 * 100, // 100 years to match backend
         path: "/",
         sameSite: "strict",
       });
-      localStorage.setItem("token", response.token);
-      localStorage.setItem("user", JSON.stringify(response.user));
+      localStorage.setItem("fitlit-token", response.token);
+      localStorage.setItem("fitlit-user", JSON.stringify(response.user));
 
       if (response.user.status === "active") {
         router.push("/dashboard");
