@@ -6,6 +6,7 @@ import { Button } from "@/components/atoms/buttons/Button";
 import { login } from "@/services/auth";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 interface LoginFormData {
   email: string;
@@ -37,8 +38,15 @@ export const LoginForm = () => {
         data.password
       )) as LoginResponse;
 
+      Cookies.set("token", response.token, {
+        expires: 365 * 100, // 100 years to match backend
+        path: "/",
+        sameSite: "strict",
+      });
+      localStorage.setItem("token", response.token);
+      localStorage.setItem("user", JSON.stringify(response.user));
+
       if (response.user.status === "active") {
-        localStorage.setItem("fitlit-token", response.token);
         router.push("/dashboard");
       } else {
         router.push("/inactive");

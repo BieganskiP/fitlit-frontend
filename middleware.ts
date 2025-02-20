@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-export default function middleware(request: NextRequest) {
+export function middleware(request: NextRequest) {
   // Get token from Authorization header or cookies
   const authHeader = request.headers.get("authorization");
   const token =
-    authHeader?.replace("Bearer ", "") || localStorage.getItem("fitlit-token");
+    authHeader?.replace("Bearer ", "") ||
+    request.cookies.get("fitlit-token")?.value;
 
   const isAuthPage = request.nextUrl.pathname === "/";
   const isSignupPage = request.nextUrl.pathname === "/signup";
