@@ -12,6 +12,12 @@ interface LoginFormData {
   password: string;
 }
 
+interface LoginResponse {
+  user: {
+    status: string;
+  };
+}
+
 export const LoginForm = () => {
   const router = useRouter();
   const [error, setError] = useState<string>("");
@@ -25,7 +31,10 @@ export const LoginForm = () => {
   const onSubmit = async (data: LoginFormData) => {
     try {
       setError("");
-      const response = await login(data.email, data.password);
+      const response = (await login(
+        data.email,
+        data.password
+      )) as LoginResponse;
 
       if (response.user.status === "active") {
         router.push("/dashboard");
