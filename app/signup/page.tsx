@@ -39,8 +39,8 @@ function SignupContent() {
   return (
     <div className="w-full max-w-md space-y-6">
       <div className="text-center">
-        <h1 className="text-3xl font-bold text-primary-500 mb-2">AIOM</h1>
-        <p className="text-neutral-400">All-in-one Manager</p>
+        <h1 className="text-3xl font-bold text-primary-500 mb-2">FITLIT</h1>
+        <p className="text-neutral-400">Wszystko w jednym miejscu</p>
       </div>
       <div className="bg-bg-800 p-8 rounded-lg shadow-lg">
         <h2 className="text-xl font-bold text-foreground mb-6 text-center">

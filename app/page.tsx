@@ -14,7 +14,7 @@ export default function Home() {
         <div className="text-center space-y-4">
           <div className="flex flex-col items-center">
             <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center shadow-lg mb-4">
-              <h1 className="text-3xl font-['Audiowide'] text-white">A</h1>
+              <h1 className="text-3xl font-['Audiowide'] text-white">F</h1>
             </div>
             <h1 className="text-4xl font-['Audiowide'] text-primary-500">
               FITLIT

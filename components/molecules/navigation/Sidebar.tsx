@@ -66,8 +66,8 @@ export const Sidebar = () => {
         } transition-transform fixed md:sticky md:top-0 inset-y-0 left-0 z-40 md:translate-x-0 w-64 h-screen border-r border-bg-700 flex flex-col bg-bg-800`}
       >
         {/* Logo - only show on desktop */}
-        <div className="hidden md:block p-4 mb-4">
-          <h1 className="text-xl font-['Audiowide'] text-foreground">AIOM</h1>
+        <div className="hidden md:flex p-4 mb-4 items-center justify-center">
+          <h1 className="text-xl font-['Audiowide'] text-foreground">FITLIT</h1>
         </div>
 
         {/* Mobile header spacer */}
@@ -78,8 +78,7 @@ export const Sidebar = () => {
           <Nav>
             {/* Main Section */}
             <NavItem href="/dashboard" onClick={closeSidebar}>
-              <LayoutDashboard size={20} />
-              Panel główny
+              <span>Panel główny</span> <LayoutDashboard size={20} />
             </NavItem>
 
             <div className="my-2 border-t border-bg-700" />
