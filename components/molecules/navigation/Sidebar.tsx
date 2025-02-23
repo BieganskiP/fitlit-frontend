@@ -1,6 +1,6 @@
 "use client";
 
-import { LayoutDashboard, LogOut, Menu, X } from "lucide-react";
+import { LayoutDashboard, LogOut, Menu, X, Settings } from "lucide-react";
 import { Nav, NavItem } from "./Nav";
 
 import { LogoutButton } from "@/components/atoms/buttons/LogoutButton";
@@ -84,7 +84,11 @@ export const Sidebar = () => {
             <div className="my-2 border-t border-bg-700" />
           </Nav>
         </div>
-
+        <div className="py-4 ">
+          <NavItem href="/dashboard/settings" onClick={closeSidebar}>
+            <span>Ustawienia</span> <Settings size={20} />
+          </NavItem>
+        </div>
         {/* Bottom section with logout button */}
         <div className="p-4 border-t border-bg-700">
           <LogoutButton className="w-full justify-center">

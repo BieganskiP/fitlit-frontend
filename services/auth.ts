@@ -40,9 +40,9 @@ const signup = async (data: SignupData) => {
 const logout = async () => {
   const response = await axios.post(`${API_BASE_URL}/auth/logout`);
 
-  Cookies.remove("token");
-  localStorage.removeItem("token");
-  localStorage.removeItem("user");
+  Cookies.remove("fitlit-token");
+  localStorage.removeItem("fitlit-token");
+  localStorage.removeItem("fitlit-user");
 
   return response.data;
 };

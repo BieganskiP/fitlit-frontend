@@ -1,5 +1,9 @@
-import React from "react";
+"use client";
 
-export default function page() {
-  return <div>page</div>;
+import { useAuth } from "@/contexts/AuthContext";
+
+export default function DashboardPage() {
+  const { user } = useAuth();
+  console.log(user);
+  return <div>DashboardPage</div>;
 }
