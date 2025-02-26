@@ -10,7 +10,7 @@ export default function SettingsPage() {
       <Tabs
         tabs={[
           { label: "Zmiana hasła", content: <ChangePasswordForm /> },
-          { label: "Zmiana danych", content: <ChangePasswordForm /> },
+          { label: "Zmiana danych", content: <div>Zmiana danych</div> },
         ]}
       />
     </PageContent>

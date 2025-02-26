@@ -27,6 +27,9 @@ export interface Route {
   name: string;
   description: string;
   active: boolean;
+  createdAt: string;
+  updatedAt: string;
+  user: User;
 }
 
 export interface LoginResponse {
@@ -46,4 +49,46 @@ export interface User {
   routes: Route[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   superadminCompanies: any[];
+}
+
+export interface UserResponse {
+  users: User[];
+  pagination: Pagination;
+}
+
+export interface Pagination {
+  total: number;
+  page: number;
+  limit: number;
+  pages: number;
+}
+
+export interface RouteResponse {
+  routes: Route[];
+  pagination: Pagination;
+}
+
+export interface AddressList {
+  id: string;
+  cateringName: string;
+  city: string;
+  companyId: string;
+  address: string;
+  createdAt: string;
+  date: string;
+  deliveryTime: string;
+  gateCode: string;
+  instruction: string;
+  phoneNumber: string;
+  postCode: string;
+  route: string;
+  routeId: string;
+  addressListInfoId: string;
+  addressListInfo: {
+    id: string;
+    numberOfStops: number;
+    numberOfPackages: number;
+    route: string;
+  };
+  updatedAt: string;
 }
